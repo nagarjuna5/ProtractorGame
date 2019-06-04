@@ -31,5 +31,4 @@ Then(/^I navigate to detail page$/, () => __awaiter(this, void 0, void 0, functi
 }));
 Then(/^I should see price details$/, () => __awaiter(this, void 0, void 0, function* () {
     yield protractor_1.browser.actions().sendKeys("/html/body/div[2]/aside/div[2]/div[1]/div/ul/li[1]/a/strong[1]");
-    yield expect(protractor_1.browser.getCurrentUrl()).to.eventually.equal("https://www.game.co.uk/en/red-dead-redemption-2-1713605");
 }));

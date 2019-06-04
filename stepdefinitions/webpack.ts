@@ -28,5 +28,9 @@ Then(/^I navigate to detail page$/, async () => {
 
 Then(/^I should see price details$/, async () => {
     await browser.actions().sendKeys("/html/body/div[2]/aside/div[2]/div[1]/div/ul/li[1]/a/strong[1]");
+    var elm = element(by.css("th[name*=Date]"));
+    var EC = protractor.ExpectedConditions;
+    browser.wait(EC.visibilityOf(elm), 5000);
+    expect(elm.getText()).toEqual('Date');
 });
 
