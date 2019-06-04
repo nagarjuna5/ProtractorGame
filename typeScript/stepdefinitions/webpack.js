@@ -24,11 +24,15 @@ When(/^I click on search button$/, () => __awaiter(this, void 0, void 0, functio
     yield protractor_1.browser.actions().sendKeys(protractor_1.protractor.Key.ENTER).perform();
 }));
 Then(/^I should see list of results$/, () => __awaiter(this, void 0, void 0, function* () {
+    search.itemText.getText().then(function (text) {
+        console.log(text);
+    });
     //await expect(browser.actions().sendKeys(":nth-child(2) > .productHeader > h2 > a")).to.eventually.equal("Red Dead Redemption 2");
 }));
 Then(/^I navigate to detail page$/, () => __awaiter(this, void 0, void 0, function* () {
-    yield protractor_1.browser.actions().sendKeys("/html/body/div[2]/main/div[1]/article[2]/div[1]/a").click();
+    //await expect(search.itemText.getText()).to.eventually.equal("Red Dead Redemption 2");
+    yield search.itemText.click();
 }));
 Then(/^I should see price details$/, () => __awaiter(this, void 0, void 0, function* () {
-    yield protractor_1.browser.actions().sendKeys("/html/body/div[2]/aside/div[2]/div[1]/div/ul/li[1]/a/strong[1]");
+    //await expect(search.detailText.isElementPresent)
 }));

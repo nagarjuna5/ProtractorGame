@@ -19,18 +19,17 @@ When(/^I click on search button$/, async () => {
 });
 
 Then(/^I should see list of results$/, async () => {
-    //await expect(browser.actions().sendKeys(":nth-child(2) > .productHeader > h2 > a")).to.eventually.equal("Red Dead Redemption 2");
+    search.itemText.getText().then(function(text) {
+        console.log(text);
+      });
+      await expect(search.itemText.getText()).to.eventually.equal("Red Dead Redemption 2");
 });
 
 Then(/^I navigate to detail page$/, async () => {
-     await browser.actions().sendKeys("/html/body/div[2]/main/div[1]/article[2]/div[1]/a").click();
+     await search.itemText.click();
 });
 
 Then(/^I should see price details$/, async () => {
-    await browser.actions().sendKeys("/html/body/div[2]/aside/div[2]/div[1]/div/ul/li[1]/a/strong[1]");
-    var elm = element(by.css("th[name*=Date]"));
-    var EC = protractor.ExpectedConditions;
-    browser.wait(EC.visibilityOf(elm), 5000);
-    expect(elm.getText()).toEqual('Date');
+    await expect(search.detailText.isElementPresent)
 });
 
