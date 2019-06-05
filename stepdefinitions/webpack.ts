@@ -1,4 +1,4 @@
-import { browser, element, protractor } from "protractor";
+import { browser, element, by, protractor } from "protractor";
 import { SearchPageObject } from "../pages/searchPage";
 const { Given, When, Then, And } = require("cucumber");
 const chai = require("chai").use(require("chai-as-promised"));
@@ -19,17 +19,14 @@ When(/^I click on search button$/, async () => {
 });
 
 Then(/^I should see list of results$/, async () => {
-    search.itemText.getText().then(function(text) {
-        console.log(text);
-      });
-      await expect(search.itemText.getText()).to.eventually.equal("Red Dead Redemption 2");
+      //await browser.element(by.linkText("Red Dead Redemption 2")).click();
 });
 
 Then(/^I navigate to detail page$/, async () => {
-     await search.itemText.click();
+    await browser.element(by.linkText("Red Dead Redemption 2")).click();
 });
 
 Then(/^I should see price details$/, async () => {
-    await expect(search.detailText.isElementPresent)
+    await expect(browser.element(by.className("btnName")).getText()).to.eventually.equal("BUY NEW");
 });
 
